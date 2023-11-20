@@ -1,38 +1,76 @@
-.App {
-  text-align: center;
+.container {
+  position: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#header {
+  background-color: #A6CF98;
+  width: 100%;
+  height: 10vh;
   display: flex;
-  flex-direction: column;
+}
+
+#content {
+  background-color: #ffffff;
+}
+
+#search_bar {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 5px; /* Add padding for spacing */
+  width: 30%; /* Set a width for the container */
+  margin: 0 auto; /* Center horizontally */
+  margin-left: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+#search_bar input {
+  flex: 1; /* Input takes remaining space */
+  margin-right: 5px; /* Add spacing between input and button */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#search_bar_button {
+  background-color: #FA7070;
+  color: #ffffff;
+  border: #FA7070;
+}
+
+#title {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  width: 40%; /* Set a width for the container */
+}
+
+#main_title {
+  color: #557c55;
+  font-family: "Inter-SemiBold", Helvetica;
+  font-size: 60px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: 10px;
+}
+
+#profile {
+  display: flex;
+  justify-content: flex-end; /* Move the button to the right side */
+  align-items: center; /* Center the button vertically */
+  width: 30%;
+  margin-right: 20px;
+}
+
+#profile_button {
+  background-color: #FA7070;
+  color: #ffffff;
+  border: #FA7070;
+}
+
+
+body {
+  margin: 0; /* Reset margin for the body */
 }
