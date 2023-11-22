@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Recipes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Recipes</h1>
+        <div class="d-flex justify-content-center"> 
+            <button id="addRecipeButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#recipeModal" onclick="openAddRecipeModal()">Add Your Recipe</button>
+        </div>
+        <ul id="recipeList">
+            <!-- Recipes added here from fetchUserREcipes function -->
+        </ul>
+
+    </div>
+
+    
+
+    <script>
+        function fetchUserRecipes() {
+            fetch('MICROSERVICE API GOES HERE')
+                .then(response => response.json())
+                .then(data => {
+                    const recipeList = document.getElementById('recipeList');
+                    recipeList.innerHTML = '';
+
+                    data.forEach(recipe => {
+                        const li = document.createElement('li');
+                        li.textContent = recipe.name;
+                        recipeList.appendChild(li);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching user recipes:', error);
+                });
+        }
+
+        // Call the function to fetch and display user recipes
+        fetchUserRecipes();
+
+        //CODE TO SEND ADD RECIPE DATA TO BACKEND
+        // document.getElementById('submitRecipe').addEventListener('click', function () {
+        //     // Validate and submit the form
+        //     const form = document.getElementById('recipeForm');
+        //     if (form.checkValidity()) {
+        //         // send data to servce
+        //         // close the modal after inputting and clicking "submit"
+        //         $('#recipeModal').modal('hide');
+        //     } else {
+        //         // Handle form validation errors
+        //         // Display error messages or styles
+        //     }
+        // });
+        
+    </script>
+
+    <div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="recipeModalLabel">Add Recipe</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="recipeForm">
+                        <div class="mb-3">
+                            <label for="recipeName" class="form-label">Recipe Name</label>
+                            <input type="text" class="form-control" id="recipeName" name="recipeName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="ingredients" class="form-label">Ingredients and Amount</label>
+                            <textarea class="form-control" id="ingredients" name="ingredients"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ingredients" class="form-label">Instructions</label>
+                            <textarea class="form-control" id="ingredients" name="ingredients"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ingredients" class="form-label">Picture</label>
+                            <textarea class="form-control" id="ingredients" name="ingredients"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary" id="submitRecipe">Post Recipe</button> -->
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
