@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import LogoutButton from "./logout";
 
 const Header = () => {
   return (
@@ -18,6 +19,9 @@ const Header = () => {
 
       <div id="profile">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="profile_button">Profile</button>
+      </div>
+      <div>
+        <LogoutButton />
       </div>
   </div>
   )
