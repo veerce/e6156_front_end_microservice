@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <title>Cuisine Generator</title>
+</head>
+<body>
+    <h1>Cuisine Generator</h1>
+    <label for="ingredientList">Ingredients:</label>
+    <input type="text" id="ingredientList" required>
+    <br>
+    <label for="title">Dish Name:</label>
+    <input type="text" id="title" required>
+    <br>
+    <button id="findCuisineButton">Find Cuisine</button>
+    <div id="result">
+        
+    </div>
+
+    <script src="api.js"></script>
+</body>
+</html>
+
+<script>
+document.getElementById("findCuisineButton").addEventListener("click", async function () {
+    const ingredientList = document.getElementById("ingredientList").value;
+    const dishName = document.getElementById("title").value;
+
+    try {
+        const response = await fetchCuisine(ingredientList, dishName);
+        displayCuisine(response);
+    } catch (error) {
+        console.error('Error:', error);
+        displayError('An error occurred while fetching cuisine data.');
+    }
+});
+
+async function fetchCuisine(ingredientList, dishName) {
+    const encodedParams = new URLSearchParams();
+    encodedParams.set('ingredientList', ingredientList);
+    encodedParams.set('title', dishName);
+
+    const options = {
+        method: 'POST',
+        url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/cuisine',
+        headers: {
+            'content-type': 'application/x-www-form-urlencoded',
+            'X-RapidAPI-Key': '15d62043c3msha7efa4fee9aff07p17c44djsnce351c7ef170',
+            'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
+        },
+        data: encodedParams,
+    };
+
+    try {
+        const response = await axios.request(options);
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+}
+    
+function displayCuisine(response) {
+    const resultDiv = document.getElementById("result");
+    
+    if (response && response.cuisine) {
+        resultDiv.innerHTML = `<p>Cuisine: ${response.cuisine}</p>`;
+    } else {
+        resultDiv.innerHTML = "<p>Cuisine not found. Let us know what it is.</p>";
+    }
+}
+    
+function displayError(error) {
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = `<p>Error: ${error}</p>`;
+}
+    
+
+
+</script>
