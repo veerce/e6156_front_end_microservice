@@ -80,7 +80,8 @@ const RecipeSubmissionForm = ({ onSubmit }) => {
   
     return (
       <div>
-        <button onClick={handleOpenModal} className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#recipeModal">Inspired? Post a Recipe.</button>
+        {/* <button onClick={handleOpenModal} className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#recipeModal">Inspired? Post a Recipe.</button> */}
+        <button onClick={handleOpenModal} className="nav-button" data-bs-toggle="modal" data-bs-target="#recipeModal">Inspired? Post a Recipe.</button>
         <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
           <h2>Add a New Recipe</h2>
           <RecipeSubmissionForm onSubmit={handleFormSubmit} />

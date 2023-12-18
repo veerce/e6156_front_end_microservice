@@ -10,6 +10,12 @@ import SearchComponent from "./Search"
 
 
 const Header = () => {
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = '/home'; 
+    navigate(path);
+  }
+
   return (
     <header id="header">
       <div id="search_bar">
@@ -19,7 +25,7 @@ const Header = () => {
         </form>
       </div>
 
-      <h1 id="main_title">RECIPEDIA</h1>
+      <h1 id="main_title" onClick={routeChange}>RECIPEDIA</h1>
       <div id = "user_controls">
         {/* <SearchComponent /> */}
         <Profile />

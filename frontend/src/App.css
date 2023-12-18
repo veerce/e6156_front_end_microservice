@@ -37,6 +37,14 @@
   transform: translateX(-50%); /* Shift it back by half its own width */
 }
 
+#main_title:hover {
+  cursor: pointer;
+  color: hsl(228, 32%, 40%);   /* Change color on hover */
+  text-decoration: bold; /* Add underline on hover */
+  text-shadow: 1px 1px 2px gray;
+}
+
+
 #user_controls {
   position: absolute; /* Take it out of the normal flow */
   right: 20px; /* Position it from the right */

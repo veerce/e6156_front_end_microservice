@@ -4,6 +4,8 @@ import './App.css';
 import LogoutButton from "./logout";
 import Header from './App';
 import './MyScreen.css';
+import Modal from './RecipeModal';
+
 
 
 
@@ -41,6 +43,17 @@ const MyScreen = () => {
     setDataToShow('recipes');
   };
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
+
   const fetchReviews = () => {
     // Simulate fetching data
         fetch('https://review-management-402504.ue.r.appspot.com/user/sarah_m')
@@ -59,6 +72,21 @@ const MyScreen = () => {
     setDataToShow('reviews');
   };
 
+  const fetchFriends = () => {
+    fetch('https://review-management-402504.ue.r.appspot.com/user/sarah_m')
+          .then(response => response.json())
+          .then(data => {
+              console.log("Fetched data:", data); // Check the fetched data
+              setReviews(data);
+          })
+          .catch(error => console.error('Error fetching reviews:', error));
+
+  }
+
+  const handleShowFriends = () => {
+      console.log("find friends!")
+  }
+
   return (
     <div>
     <Header />
@@ -68,8 +96,12 @@ const MyScreen = () => {
       <div className="nav-buttons">
         <button className="nav-button" onClick={handleShowRecipes}>My Recipes</button>
         <button className="nav-button" onClick={handleShowReviews}>My Reviews</button>
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+          <h2>My Popup</h2>
+          <p>This is the content of the popup!</p>
+        </Modal>
+        <button className="nav-button" onClick={handleShowFriends}>My Friends</button>
       </div>
-     
       
       {dataToShow == 'recipes' && (
         <div>
