@@ -49,17 +49,20 @@ const RecipeSubmissionForm = ({ onSubmit }) => {
     const handleCloseModal = () => setIsModalOpen(false);
   
     const handleFormSubmit = (formData) => {
+      console.log('handle form here')
       console.log('Form Data:', formData);
-      fetch('http://localhost:8000/recipes/', {
+      fetch('http://ec2-3-89-33-4.compute-1.amazonaws.com:8011/recipes/', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
             // Include any other headers your API requires, such as authentication tokens
             },
             body: JSON.stringify({
-                recipeName: formData.recipeName,
-                ingredients: formData.ingredients,
-                instructions: formData.instructions
+              author_id: "sarah_m", // hardcoded author_id
+              images: "dummy.png", // hardcoded image
+              ingredients: formData.ingredients, // ingredients from form
+              steps: formData.instructions, // instructions from form mapped to 'steps'
+              title: formData.recipeName // recipeName from form mapped to 'title'
             })
         })
         .then(response => response.json())
@@ -73,7 +76,7 @@ const RecipeSubmissionForm = ({ onSubmit }) => {
         });
         
         handleCloseModal();
-        };
+    };
   
     return (
       <div>
