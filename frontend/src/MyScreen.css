@@ -1,0 +1,47 @@
+/* Welcome Area Styling */
+.welcome-area {
+    background-color: #ffffff; /* Light gray background for the welcome area */
+    text-align: center; /* Center the text */
+    padding: 20px 0; /* Add padding above and below the text */
+    font-family: "Inter-SemiBold", Garamond;
+  }
+  
+  .welcome-message {
+    font-size: 40px; /* Larger text for welcome message */
+    color: #333; /* Darker text for better readability */
+    margin-bottom: 10px; /* Space below the welcome message */
+    text-align: center; 
+    font-family: "Inter-SemiBold", Garamond;
+    padding-top: 10px;
+  }
+  
+  /* Navigation Button Styling */
+  .nav-buttons {
+    display: flex;
+    justify-content: center; /* Center the buttons container */
+    gap: 10px; /* Space between buttons */
+  }
+  
+  .nav-button {
+    background-color: #7187dc; /* Use the theme color for buttons */
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Padding inside the buttons */
+    text-decoration: none; /* Remove underline from links if using <a> tags */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 4px; /* Rounded corners for buttons */
+    font-size: 18px; /* Slightly larger text for buttons */
+  }
+  
+  .nav-button:hover {
+    background-color: #455287; /* Darker color on hover */
+  }
+
+  .idk{
+    text-align: center;
+    padding-top: 20px;
+    font-family: "Inter-SemiBold", Garamond;
+  }
+  
+  /* Apply these styles in your CSS file, and use the class names in your JSX. */
+  
