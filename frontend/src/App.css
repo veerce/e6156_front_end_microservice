@@ -1,6 +1,6 @@
-.container {
+/* .container {
   position: center;
-}
+} */
 
 .wrapper {
   margin-left: auto;
@@ -8,25 +8,67 @@
   margin: 0;
 }
 
+/* This sets up the flex container for the header */
 #header {
+  background-color: #c9d4d6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space between will push the child elements to the edges */
+  padding: 0 1rem; /* Add horizontal padding */
+  height: 10vh;
+  font-family: "Inter-SemiBold", Garamond;
+}
+
+/* Styling for the search bar */
+#search_bar {
+  position: absolute; /* Take it out of the normal flow */
+  left: 20px; /* Position it from the left */
+}
+
+/* The form doesn't need specific styling if it's the only element within #search_bar */
+
+/* Styling for the main title to ensure it doesn't grow and stays centered */
+#main_title {
+  color: hwb(229 27% 42% / 0.608);
+  font-family: "Inter-SemiBold", Garamond;
+  font-size: 60px;
+  position: absolute; /* Take it out of the normal flow */
+  left: 50%; /* Position it halfway across */
+  transform: translateX(-50%); /* Shift it back by half its own width */
+}
+
+#user_controls {
+  position: absolute; /* Take it out of the normal flow */
+  right: 20px; /* Position it from the right */
+  display: flex;
+  flex-direction: row; /* Align buttons horizontally */
+  justify-content: flex-end; /* Align buttons to the right */
+  gap: 30px; /* This adds space between the buttons */
+}
+
+/* #header {
   background-color: #A6CF98;
   width: 100%;
   height: 10vh;
   display: flex;
-}
+  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+} */
 
 #content {
-  background-color: #ffffff;
+  background-color: #d3c1c1;
 }
 
-#search_bar {
+/* #search_bar {
   display: flex;
   align-items: center;
   padding: 5px; /* Add padding for spacing */
-  width: 30%; /* Set a width for the container */
-  margin: 0 auto; /* Center horizontally */
-  margin-left: 20px;
-}
+  /* width: 30%; 
+  margin: 0 auto; 
+  margin-left: 20px; 
+}*/
 
 #search_bar input {
   flex: 1; /* Input takes remaining space */
@@ -34,18 +76,19 @@
 }
 
 #search_bar_button {
-  background-color: #FA7070;
+  background-color: hsl(228, 32%, 40%);
   color: #ffffff;
   border: #FA7070;
 }
 
-#title {
-  display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically */
-  width: 40%; /* Set a width for the container */
-}
+/* #title {
+  /* display: flex; */
+  /* justify-content: center; /*Centers horizontally*/
+  /* align-items: center; Centers vertically */
+  /* text-align: center;  */
+  /* width: 40%; Set a width for the container */
 
+/* 
 #main_title {
   color: #557c55;
   font-family: "Inter-SemiBold", Helvetica;
@@ -53,8 +96,7 @@
   font-weight: 500;
   letter-spacing: 0;
   line-height: normal;
-  margin-top: 10px;
-}
+} */
 
 #profile {
   display: flex;
@@ -65,7 +107,7 @@
 }
 
 #profile_button {
-  background-color: #FA7070;
+  background-color: #455287;
   color: #ffffff;
   border: #FA7070;
 }
