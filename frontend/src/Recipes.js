@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom/client';
+import { Link } from 'react-router-dom'; 
 import App from './App';
 import './Recipes.css';
 import Modal from './RecipeModal';
@@ -15,7 +15,7 @@ const UserRecipes = () => {
     }, []);
 
     const fetchUserRecipes = () => {
-        fetch('http://ec2-3-89-33-4.compute-1.amazonaws.com:8011/recipes')
+        fetch('http://ec2-54-91-9-29.compute-1.amazonaws.com:8011/recipes')
           .then(response => response.json())
           .then(data => {
               console.log("Fetched data:", data); // Check the fetched data
@@ -43,12 +43,14 @@ const UserRecipes = () => {
             <ul>
 
             {recipes.map((recipe) => (
-                    <div key={recipe.recipe_id} style={{ margin: '10px 0', border: '1px solid #ddd', padding: '10px', backgroundColor: '#f9f9f9'}}>
-                        <h2>{recipe.title}</h2>
+                <Link to={`/recipe/${recipe.recipe_id}`} key={recipe.recipe_id} style={{ textDecoration: 'none' }}>
+                    <li key={recipe.recipe_id} style={{ margin: '10px 0', border: '1px solid #ddd', padding: '10px', backgroundColor: '#f9f9f9'}}>
+                        <h3><strong></strong>{recipe.title}</h3>
                         <p><strong>Author:</strong> {recipe.author_id}</p>
                         <p><strong>Ingredients:</strong> {recipe.ingredients}</p>
                         <p><strong>Steps:</strong> {recipe.steps}</p>
-                    </div>
+                    </li>
+                </Link>
                 ))}
                 
             </ul>
