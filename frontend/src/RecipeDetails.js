@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './RecipeDetails.css'
+import { recipeURL, userURL, reviewURL } from './config';
+
 
 const RecipeDetails = () => {
   const { recipeId } = useParams();
@@ -9,7 +11,7 @@ const RecipeDetails = () => {
 
   useEffect(() => {
     const fetchRecipeDetails = async () => {
-      const response = await fetch(`http://ec2-54-91-9-29.compute-1.amazonaws.com:8011/recipes/${recipeId}`)
+      const response = await fetch(`${recipeURL}/recipes/${recipeId}`)
           .then(response => response.json())
           .then(data => {
               console.log("Fetched data:", data); 
@@ -20,7 +22,7 @@ const RecipeDetails = () => {
 
     const fetchReviews = async () => {
       //gets all of the reviews for this recipe ID
-      const response = await fetch(`https://review-management-402504.ue.r.appspot.com/recipe/${recipeId}`)
+      const response = await fetch(`${reviewURL}/recipe/${recipeId}`)
       .then(response => response.json())
           .then(data => {
               console.log("Fetched data:", data); 
