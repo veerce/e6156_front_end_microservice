@@ -29,12 +29,12 @@ const MyScreen = () => {
   const fetchRecipes = () => {
     // Simulate fetching data
         //fetch all recipes by this user
-        fetch(`${recipeURL}/recipes?objects_filter=author:sarah_m`)
+        fetch(`${recipeURL}/recipes?author_id=sarah_m`)
           .then(response1 => response1.json())
           .then(data1 => {
               console.log("Fetched data:", data1); // Check the fetched data
               setRecipes(data1);
-              console.log("test data:", setRecipes); 
+              //console.log("test data:", setRecipes); 
           })
           .catch(error => console.error('Error fetching recipes:', error));
   }
@@ -48,14 +48,13 @@ const MyScreen = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const handleOpenModal = () => {
-        setIsModalOpen(true);
-    };
+  const handleOpenModal = () => {
+      setIsModalOpen(true);
+  };
 
-    const handleCloseModal = () => {
-        setIsModalOpen(false);
-    };
-
+  const handleCloseModal = () => {
+      setIsModalOpen(false);
+  };
 
   const fetchReviews = () => {
     // Simulate fetching data
