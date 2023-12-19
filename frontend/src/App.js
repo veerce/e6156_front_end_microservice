@@ -5,6 +5,7 @@ import LogoutButton from "./logout";
 import CuisineGenerator from "./Cuisine"
 import Recipes from './Recipes';
 import { useNavigate } from 'react-router-dom';
+import { recipeURL, userURL, reviewURL } from './config';
 
 const Header = () => {
   let navigate = useNavigate(); 
@@ -47,7 +48,7 @@ const SearchComponent = () => {
       return;
     }
 
-    const apiUrl = 'http://0.0.0.0:8011/recipes';
+    const apiUrl = `${recipeURL}/recipes`;
     try {
       const response = await fetch(`${apiUrl}?objects_filter=${encodeURIComponent(searchQuery)}`);
       if (!response.ok) {

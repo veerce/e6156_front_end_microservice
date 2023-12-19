@@ -6,20 +6,24 @@ import Modal from './RecipeModal';
 import LoginScreen from './LoginScreen'
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { recipeURL, userURL, reviewURL } from './config';
+
 
 const UserRecipes = () => {
     const [recipes, setRecipes] = useState([]);
+    console.log(`${recipeURL}/recipes`)
+
 
     useEffect(() => {
         fetchUserRecipes();
     }, []);
 
     const fetchUserRecipes = () => {
-        fetch('http://ec2-3-89-33-4.compute-1.amazonaws.com:8011/recipes')
+        fetch(`${recipeURL}/recipes`)
           .then(response => response.json())
           .then(data => {
-              console.log("Fetched data:", data); // Check the fetched data
-              setRecipes(data);
+            console.log("Fetched data:", data); // Check the fetched data
+            setRecipes(data);
           })
           .catch(error => console.error('Error fetching recipes:', error));
     };

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { recipeURL, userURL, reviewURL } from './config';
 
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
@@ -51,7 +52,7 @@ const RecipeSubmissionForm = ({ onSubmit }) => {
     const handleFormSubmit = (formData) => {
       console.log('handle form here')
       console.log('Form Data:', formData);
-      fetch('http://ec2-3-89-33-4.compute-1.amazonaws.com:8011/recipes/', {
+      fetch(`${recipeURL}/recipes/`, {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',

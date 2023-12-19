@@ -5,6 +5,7 @@ import LogoutButton from "./logout";
 import Header from './App';
 import './MyScreen.css';
 import Modal from './RecipeModal';
+import { recipeURL, userURL, reviewURL } from './config';
 
 
 
@@ -26,7 +27,7 @@ const MyScreen = () => {
   const fetchRecipes = () => {
     // Simulate fetching data
         //fetch all recipes by this user
-        fetch('http://ec2-3-89-33-4.compute-1.amazonaws.com:8011/recipes?objects_filter=author:sarah_m')
+        fetch(`${recipeURL}/recipes?objects_filter=author:sarah_m`)
           .then(response1 => response1.json())
           .then(data1 => {
               console.log("Fetched data:", data1); // Check the fetched data
@@ -56,7 +57,7 @@ const MyScreen = () => {
 
   const fetchReviews = () => {
     // Simulate fetching data
-        fetch('https://review-management-402504.ue.r.appspot.com/user/sarah_m')
+        fetch(`${reviewURL}/user/sarah_m`)
           .then(response => response.json())
           .then(data => {
               console.log("Fetched data:", data); // Check the fetched data
@@ -73,7 +74,7 @@ const MyScreen = () => {
   };
 
   const fetchFriends = () => {
-    fetch('https://review-management-402504.ue.r.appspot.com/user/sarah_m')
+    fetch(`${userURL}/user/sarah_m`)
           .then(response => response.json())
           .then(data => {
               console.log("Fetched data:", data); // Check the fetched data
