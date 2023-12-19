@@ -43,5 +43,20 @@
     font-family: "Inter-SemiBold", Garamond;
   }
   
-  /* Apply these styles in your CSS file, and use the class names in your JSX. */
+  .friend-card {
+    background-color: white; /* Or use a color that matches your theme */
+    border: 1px solid #ddd; /* Soft border color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    padding: 20px; /* Spacing inside the card */
+    margin-bottom: 20px; /* Spacing between cards */
+    transition: transform 0.2s; /* Smooth transition for hover effect */
+    font-family: "Inter-SemiBold", Garamond;
+  }
   
+  
+  .friend-email {
+    font-size: 0.9em; /* Smaller font size for email */
+    color: #555; /* Subdued color for email */
+    font-family: "Inter-SemiBold", Garamond;
+  }  

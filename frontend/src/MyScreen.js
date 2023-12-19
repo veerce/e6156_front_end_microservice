@@ -17,6 +17,8 @@ const MyScreen = () => {
     const [reviews, setReviews] = useState([]);
 //   const [showReviews, setShowReviews] = useState(false);
 
+    const [friends, setFriends] = useState([]);
+
     // const [dataToShow, setDataToShow] = useState([]);
     // let dataToShow = 'none';
     const [dataToShow, setDataToShow] = useState('none'); // Change this to state
@@ -74,18 +76,19 @@ const MyScreen = () => {
   };
 
   const fetchFriends = () => {
-    fetch(`${userURL}/user/sarah_m`)
+    fetch(`${userURL}/users`)
           .then(response => response.json())
           .then(data => {
               console.log("Fetched data:", data); // Check the fetched data
-              setReviews(data);
+              setFriends(data);
           })
           .catch(error => console.error('Error fetching reviews:', error));
 
   }
 
   const handleShowFriends = () => {
-      console.log("find friends!")
+      fetchFriends();
+      setDataToShow('friends');
   }
 
   return (
@@ -133,6 +136,21 @@ const MyScreen = () => {
           </ul>
         </div>
       )}
+
+    {dataToShow == 'friends' && (
+            <div>
+              <h2 className = "idk">My Friends</h2>
+              <ul>
+                    {friends.map((friend) => (
+                        <div className = "friend-card" key={friend.user_id} style={{ margin: '10px 0', border: '1px solid #ddd', padding: '10px', backgroundColor: '#f9f9f9'}}>
+                            <h3>{friend.first_name} {friend.last_name}</h3>
+                            <p><strong> {friend.user_id}</strong></p>
+                            <p className = "friend-email"><strong>Email:</strong> {friend.email}</p>
+                        </div>
+                    ))}
+              </ul>
+            </div>
+          )}
 
     
     </div>
