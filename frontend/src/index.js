@@ -8,6 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Recipes from './Recipes';
 import Cuisine from './Cuisine';
+import RecipeDetails from './RecipeDetails';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +20,7 @@ root.render(
         <Route path='/home' element={<Recipes/>}/>
         <Route path='/profile' element={<MyScreen/>}/>
         <Route path='/cuisinegenerator' element={<Cuisine/>}/>
+        <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
         {/* <Route path='/home' element={<Recipes/>}/> */}
       </Routes>
     </BrowserRouter>
