@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './RecipeDetails.css'
 import { recipeURL, userURL, reviewURL } from './config';
+import App from './App';
 
 
 const RecipeDetails = () => {
@@ -37,6 +38,7 @@ const RecipeDetails = () => {
 
   return (
     <div>
+        < App />
       {recipeDetails && (
         <div>
           <h1>{recipeDetails.title}</h1>
@@ -56,6 +58,7 @@ const RecipeDetails = () => {
                 </li>
             ))}
       </ul>
+
     </div>
   );
 };
