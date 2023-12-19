@@ -90,6 +90,23 @@ const MyScreen = () => {
       setDataToShow('friends');
   }
 
+  function handleDelete(review_id){
+    //delete this review from user's page
+    fetch(`${reviewURL}/delete_review/${review_id}`, {
+      method: 'DELETE',
+    })
+      
+    .then(response => response.json())
+      .then(data => {
+          console.log('Delete worked:', data);
+          //anything else needed to remove review from page?
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+      });
+
+  }
+
   return (
     <div>
     <Header />
@@ -130,6 +147,7 @@ const MyScreen = () => {
                     <p>Date written: {review[3].substring(0, 10)}</p>
                     <p>Your Rating: {review[4].toString().concat("/10")}</p>
                     <p>Review: {review[5]}</p>
+                    <button className="delete-button" onClick={() => handleDelete(review[0])}>Delete</button>
                     </li>
                 ))}
           </ul>

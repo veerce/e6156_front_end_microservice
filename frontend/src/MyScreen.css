@@ -60,3 +60,14 @@
     color: #555; /* Subdued color for email */
     font-family: "Inter-SemiBold", Garamond;
   }  
+
+  .delete-button{
+    background-color: #aab6ea; /* Use the theme color for buttons */
+    color: rgb(32, 31, 31);
+    border: none;
+    padding: 5px 10px; /* Padding inside the buttons */
+    text-decoration: none; /* Remove underline from links if using <a> tags */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 2px; /* Rounded corners for buttons */
+    font-size: 12px; /* Slightly larger text for buttons */
+  }
