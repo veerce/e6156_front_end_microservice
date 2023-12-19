@@ -15,8 +15,7 @@ const UserRecipes = () => {
     }, []);
 
     const fetchUserRecipes = () => {
-        fetch('https://review-management-402504.ue.r.appspot.com/reviews')
-        // fetch('http://ec2-3-93-174-27.compute-1.amazonaws.com:8011/users')
+        fetch('http://ec2-3-89-33-4.compute-1.amazonaws.com:8011/recipes')
           .then(response => response.json())
           .then(data => {
               console.log("Fetched data:", data); // Check the fetched data
@@ -42,17 +41,16 @@ const UserRecipes = () => {
             <h1 className = "centered-heading">What's Cookin' Today:</h1>
            
             <ul>
-                {recipes.map((recipe, index) => (
-                    <li key={index} style={{ margin: '10px 0', border: '1px solid #ddd', padding: '10px', backgroundColor: '#f9f9f9'}}>
-                    <p>Author: {recipe[0]}</p>
-                    <p>Date: {recipe[3]}</p>
-                    <p>Rating: {recipe[4]}</p>
-                    <p>Review: {recipe[5]}</p>
 
-                    {/* <p>Author: {recipe.first_name} {recipe.last_name}</p>
-                    <p>Email: {recipe.email}</p> */}
-                    </li>
+            {recipes.map((recipe) => (
+                    <div key={recipe.recipe_id} style={{ margin: '10px 0', border: '1px solid #ddd', padding: '10px', backgroundColor: '#f9f9f9'}}>
+                        <h2>{recipe.title}</h2>
+                        <p><strong>Author:</strong> {recipe.author_id}</p>
+                        <p><strong>Ingredients:</strong> {recipe.ingredients}</p>
+                        <p><strong>Steps:</strong> {recipe.steps}</p>
+                    </div>
                 ))}
+                
             </ul>
 
             <div className="d-flex justify-content-center"> 

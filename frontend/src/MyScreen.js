@@ -26,7 +26,7 @@ const MyScreen = () => {
   const fetchRecipes = () => {
     // Simulate fetching data
         //fetch all recipes by this user
-        fetch('http://ec2-54-221-183-160.compute-1.amazonaws.com:8011/recipes?objects_filter=author:john_c')
+        fetch('http://ec2-3-89-33-4.compute-1.amazonaws.com:8011/recipes?objects_filter=author:sarah_m')
           .then(response1 => response1.json())
           .then(data1 => {
               console.log("Fetched data:", data1); // Check the fetched data
@@ -107,12 +107,12 @@ const MyScreen = () => {
         <div>
           <h2 className = "idk">My Recipes</h2>
           <ul>
-                {recipes.map((recipe, index) => (
-                    <li key={index}>
-                    <p>Title: {recipe[3]}</p>
-                    <p>Ingredients: {recipe[3]}</p>
-                    <p>Steps: {recipe[4]}</p>
-                    </li>
+                {recipes.map((recipe) => (
+                    <div key={recipe.recipe_id} style={{ margin: '10px 0', border: '1px solid #ddd', padding: '10px', backgroundColor: '#f9f9f9'}}>
+                        <h2>{recipe.title}</h2>
+                        <p><strong>Ingredients:</strong> {recipe.ingredients}</p>
+                        <p><strong>Steps:</strong> {recipe.steps}</p>
+                    </div>
                 ))}
           </ul>
         </div>
