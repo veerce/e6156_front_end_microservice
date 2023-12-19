@@ -5,7 +5,8 @@ import LogoutButton from "./logout";
 import Header from './App';
 import './MyScreen.css';
 import Modal from './RecipeModal';
-import { recipeURL, userURL, reviewURL } from './config';
+import { recipeURL, userURL, reviewURL, graphQL } from './config';
+
 
 
 
@@ -56,16 +57,36 @@ const MyScreen = () => {
       setIsModalOpen(false);
   };
 
+  const query = `{
+    userReviews(userId: "sarah_m") {
+      reviewId
+      text
+      recipeTitle
+      rating
+      date
+    }
+  }`;
+
+
   const fetchReviews = () => {
-    // Simulate fetching data
-        fetch(`${reviewURL}/user/sarah_m`)
-          .then(response => response.json())
-          .then(data => {
-              console.log("Fetched data:", data); // Check the fetched data
-              setReviews(data);
-          })
-          .catch(error => console.error('Error fetching reviews:', error));
+    return fetch(`${graphQL}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+        query
+      }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log("Fetched data:", data); // Check the fetched data
+      setReviews(data);
+    })
+    .catch(error => console.error('Error fetching recipes:', error));
   }
+  
 
   const handleShowReviews = () => {
     fetchReviews();
@@ -90,7 +111,7 @@ const MyScreen = () => {
       setDataToShow('friends');
   }
 
-  function handleDelete(review_id){
+  const handleDelete = (review_id) => {
     //delete this review from user's page
     fetch(`${reviewURL}/delete_review/${review_id}`, {
       method: 'DELETE',
@@ -101,11 +122,8 @@ const MyScreen = () => {
           console.log('Delete worked:', data);
           //anything else needed to remove review from page?
       })
-      .catch((error) => {
-          console.error('Error:', error);
-      });
-
-  }
+      .catch(error => console.error('Error fetching reviews:', error));
+    }
 
   return (
     <div>
@@ -142,14 +160,18 @@ const MyScreen = () => {
         <div>
           <h2 className = "idk">My Reviews</h2>
           <ul>
-                {reviews.map((review, index) => (
-                    <li key={index}>
-                    <p>Date written: {review[3].substring(0, 10)}</p>
-                    <p>Your Rating: {review[4].toString().concat("/10")}</p>
-                    <p>Review: {review[5]}</p>
-                    <button className="delete-button" onClick={() => handleDelete(review[0])}>Delete</button>
-                    </li>
-                ))}
+
+                {reviews.map((review) => (
+                    <div key={review.review_id} style={{ margin: '10px 0', border: '1px solid #ddd', padding: '10px', backgroundColor: '#f9f9f9'}}>
+                        <h2>{review.title}</h2>
+                        <p><strong>Your Review:</strong> {review.text}</p>
+                        <p><strong>Your Rating:</strong> {review.rating}</p>
+                        <p><strong>Date Posted:</strong> {review.date}</p>
+                        <button className="delete-button" onClick={() => handleDelete(review.review_id)}>Delete</button>
+                    </div>
+                ))} 
+
+                
           </ul>
         </div>
       )}
