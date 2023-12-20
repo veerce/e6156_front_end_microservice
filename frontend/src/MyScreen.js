@@ -22,18 +22,16 @@ const MyScreen = () => {
 
     // const [dataToShow, setDataToShow] = useState([]);
     // let dataToShow = 'none';
-    const [dataToShow, setDataToShow] = useState('none'); // Change this to state
+    const [dataToShow, setDataToShow] = useState('none'); 
 
     
-
-  // This is a placeholder for where you might fetch real data
   const fetchRecipes = () => {
     // Simulate fetching data
         //fetch all recipes by this user
         fetch(`${recipeURL}/recipes?author_id=sarah_m`)
           .then(response1 => response1.json())
           .then(data1 => {
-              console.log("Fetched data:", data1); // Check the fetched data
+              console.log("Fetched data:", data1); 
               setRecipes(data1);
               //console.log("test data:", setRecipes); 
           })
@@ -60,8 +58,8 @@ const MyScreen = () => {
   const query = `{
     userReviews(userId: "sarah_m") {
       reviewId
-      text
       recipeTitle
+      text
       rating
       date
     }
@@ -72,8 +70,7 @@ const MyScreen = () => {
     return fetch(`${graphQL}`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         query
@@ -81,8 +78,9 @@ const MyScreen = () => {
     })
     .then(response => response.json())
     .then(data => {
-      console.log("Fetched data:", data); // Check the fetched data
-      setReviews(data);
+      console.log("Fetched data:", data);
+      setReviews(data.data.userReviews);
+      //console.log("check data:", setReviews);
     })
     .catch(error => console.error('Error fetching recipes:', error));
   }
@@ -99,7 +97,7 @@ const MyScreen = () => {
     fetch(`${userURL}/users`)
           .then(response => response.json())
           .then(data => {
-              console.log("Fetched data:", data); // Check the fetched data
+              console.log("Fetched data:", data); 
               setFriends(data);
           })
           .catch(error => console.error('Error fetching reviews:', error));
@@ -120,7 +118,6 @@ const MyScreen = () => {
     .then(response => response.json())
       .then(data => {
           console.log('Delete worked:', data);
-          //anything else needed to remove review from page?
       })
       .catch(error => console.error('Error fetching reviews:', error));
     }
@@ -162,16 +159,15 @@ const MyScreen = () => {
           <ul>
 
                 {reviews.map((review) => (
-                    <div key={review.review_id} style={{ margin: '10px 0', border: '1px solid #ddd', padding: '10px', backgroundColor: '#f9f9f9'}}>
-                        <h2>{review.title}</h2>
+                    <div key={review.reviewID} style={{ margin: '10px 0', border: '1px solid #ddd', padding: '10px', backgroundColor: '#f9f9f9'}}>
+                        <h3>{review.recipeTitle}</h3>
                         <p><strong>Your Review:</strong> {review.text}</p>
                         <p><strong>Your Rating:</strong> {review.rating}</p>
-                        <p><strong>Date Posted:</strong> {review.date}</p>
+                        <p><strong>Date Posted:</strong> {review.date.substring(0, 10)}</p>
                         <button className="delete-button" onClick={() => handleDelete(review.review_id)}>Delete</button>
                     </div>
                 ))} 
 
-                
           </ul>
         </div>
       )}
