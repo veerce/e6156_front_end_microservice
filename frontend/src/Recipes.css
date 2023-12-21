@@ -6,37 +6,35 @@
 }
 
 ul {
-  list-style: none; /* Remove default list styling */
-  padding: 0; /* Remove default padding */
-  width: 80%; /* Adjust width as needed */
-  margin: 20px auto; /* Center the list with automatic horizontal margins and add some vertical space */
+  list-style: none; 
+  padding: 0; 
+  width: 80%; 
+  margin: 20px auto; 
 }
 
 li {
-  background-color: #fff; /* Light background for each item */
-  border: 1px solid #ddd; /* Light border for each item */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
-  margin-bottom: 15px; /* Space between items */
-  padding: 20px; /* Padding inside each item */
-  transition: transform 0.2s; /* Smooth transition for hover effect */
+  background-color: #fff; 
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+  margin-bottom: 15px; 
+  padding: 20px; 
+  transition: transform 0.2s; 
 }
 
 li:hover {
-  transform: translateY(-3px); /* Slight raise effect on hover */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Enhanced shadow on hover */
+  transform: translateY(-3px); 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Typography styles */
 li p {
-  margin: 10px 0; /* Add some space between paragraphs */
-  font-size: 16px; /* Adjust font size as needed */
-  line-height: 1.5; /* Adjust line height for readability */
-  color: #333; /* Dark color for text for better readability */
+  margin: 10px 0; 
+  font-size: 16px; 
+  line-height: 1.5; 
+  color: #333; 
 }
 
-/* Optional: Style the date to be smaller and lighter */
 li .date {
-  font-size: 0.9em; /* Smaller font size for the date */
-  color: #666; /* Lighter color for the date */
+  font-size: 0.9em; 
+  color: #666; 
 }
