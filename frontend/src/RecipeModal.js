@@ -56,7 +56,6 @@ const RecipeSubmissionForm = ({ onSubmit }) => {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
-            // Include any other headers your API requires, such as authentication tokens
             },
             body: JSON.stringify({
               author_id: "sarah_m", // hardcoded author_id
