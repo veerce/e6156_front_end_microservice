@@ -1,40 +1,38 @@
-/* Welcome Area Styling */
 .welcome-area {
-    background-color: #ffffff; /* Light gray background for the welcome area */
-    text-align: center; /* Center the text */
-    padding: 20px 0; /* Add padding above and below the text */
+    background-color: #ffffff; 
+    text-align: center; 
+    padding: 20px 0; 
     font-family: "Inter-SemiBold", Garamond;
   }
   
   .welcome-message {
-    font-size: 40px; /* Larger text for welcome message */
-    color: #333; /* Darker text for better readability */
-    margin-bottom: 10px; /* Space below the welcome message */
+    font-size: 40px; 
+    color: #333; 
+    margin-bottom: 10px; 
     text-align: center; 
     font-family: "Inter-SemiBold", Garamond;
     padding-top: 10px;
   }
   
-  /* Navigation Button Styling */
   .nav-buttons {
     display: flex;
-    justify-content: center; /* Center the buttons container */
-    gap: 10px; /* Space between buttons */
+    justify-content: center; 
+    gap: 10px; 
   }
   
   .nav-button {
-    background-color: #7187dc; /* Use the theme color for buttons */
+    background-color: #7187dc; 
     color: white;
     border: none;
-    padding: 10px 20px; /* Padding inside the buttons */
-    text-decoration: none; /* Remove underline from links if using <a> tags */
-    cursor: pointer; /* Pointer cursor on hover */
-    border-radius: 4px; /* Rounded corners for buttons */
-    font-size: 18px; /* Slightly larger text for buttons */
+    padding: 10px 20px; 
+    text-decoration: none; 
+    cursor: pointer;
+    border-radius: 4px; 
+    font-size: 18px; 
   }
   
   .nav-button:hover {
-    background-color: #455287; /* Darker color on hover */
+    background-color: #455287; 
   }
 
   .idk{
@@ -44,30 +42,30 @@
   }
   
   .friend-card {
-    background-color: white; /* Or use a color that matches your theme */
-    border: 1px solid #ddd; /* Soft border color */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
-    padding: 20px; /* Spacing inside the card */
-    margin-bottom: 20px; /* Spacing between cards */
-    transition: transform 0.2s; /* Smooth transition for hover effect */
+    background-color: white; 
+    border: 1px solid #ddd; 
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    padding: 20px;
+    margin-bottom: 20px; 
+    transition: transform 0.2s; 
     font-family: "Inter-SemiBold", Garamond;
   }
   
   
   .friend-email {
-    font-size: 0.9em; /* Smaller font size for email */
-    color: #555; /* Subdued color for email */
+    font-size: 0.9em; 
+    color: #555; 
     font-family: "Inter-SemiBold", Garamond;
   }  
 
   .delete-button{
-    background-color: #aab6ea; /* Use the theme color for buttons */
+    background-color: #aab6ea; 
     color: rgb(32, 31, 31);
     border: none;
-    padding: 5px 10px; /* Padding inside the buttons */
-    text-decoration: none; /* Remove underline from links if using <a> tags */
-    cursor: pointer; /* Pointer cursor on hover */
-    border-radius: 2px; /* Rounded corners for buttons */
-    font-size: 12px; /* Slightly larger text for buttons */
+    padding: 5px 10px; 
+    text-decoration: none; 
+    cursor: pointer; 
+    border-radius: 2px;
+    font-size: 12px;
   }
