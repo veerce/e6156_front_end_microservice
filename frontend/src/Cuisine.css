@@ -1,42 +1,38 @@
-/* Main body styling for consistency */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* A light grey background */
-    color: #333; /* Dark grey text for readability */
+    background-color: #f4f4f4; 
+    color: #333; 
     font-family: "Inter-SemiBold", Garamond;
   }
   
-  /* Header and title styles */
   h1 {
     text-align: center;
-    color: #0a0c14; /* A color that matches your RECIPEDIA header */
-    margin-top: 10px; /* Gives some space at the top of the page */
+    color: #0a0c14; 
+    margin-top: 10px;
     font-family: "Inter-SemiBold", Garamond;
     padding-top: 10px;
   }
   
-  /* Styles for the form and inputs */
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px; /* Space between form elements */
-    margin-top: 2rem; /* Space below the title */
+    gap: 30px; 
+    margin-top: 2rem; 
   }
   
   input[type="text"] {
-    border: 2px solid #ddd; /* A subtle border color */
-    border-radius: 4px; /* Rounded borders for the input fields */
+    border: 2px solid #ddd; 
+    border-radius: 4px; 
     padding: 0.5rem;
-    width: 80%; /* Responsive width */
-    max-width: 400px; /* Maximum width */
+    width: 80%;
+    max-width: 400px; 
   }
   
-  /* Button styling */
   button {
-    background-color: #455287; /* A color that matches your RECIPEDIA header */
+    background-color: #455287; 
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -46,20 +42,19 @@ body {
   }
   
   button:hover {
-    background-color: #687cca; /* Darken the button color on hover */
+    background-color: #687cca; 
   }
   
-  /* Result display styling */
   #result {
     text-align: center;
-    margin-top: 1rem; /* Space above the results */
+    margin-top: 1rem; 
     padding: 1rem;
     border-radius: 4px;
-    background-color: white; /* A white background to highlight the result */
-    width: 80%; /* Responsive width */
-    max-width: 400px; /* Maximum width */
-    margin: 1rem auto; /* Center the result box */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: white; 
+    width: 80%; 
+    max-width: 400px; 
+    margin: 1rem auto; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
     font-family: "Inter-SemiBold", Garamond;
   }
   
