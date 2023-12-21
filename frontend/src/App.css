@@ -1,31 +1,24 @@
-/* .container {
-  position: center;
-} */
-
 .wrapper {
   margin-left: auto;
   margin-right: auto;
   margin: 0;
 }
 
-/* This sets up the flex container for the header */
 #header {
   background-color: #c9d4d6;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Space between will push the child elements to the edges */
-  padding: 0 1rem; /* Add horizontal padding */
+  justify-content: space-between; 
+  padding: 0 1rem; 
   height: 10vh;
   font-family: "Inter-SemiBold", Garamond;
 }
 
-/* Styling for the search bar */
 #search_bar {
-  position: absolute; /* Take it out of the normal flow */
-  left: 20px; /* Position it from the left */
+  position: absolute; 
+  left: 20px; 
 }
 
-/* The form doesn't need specific styling if it's the only element within #search_bar */
 
 /* Styling for the main title to ensure it doesn't grow and stays centered */
 #main_title {
@@ -54,29 +47,11 @@
   gap: 30px; /* This adds space between the buttons */
 }
 
-/* #header {
-  background-color: #A6CF98;
-  width: 100%;
-  height: 10vh;
-  display: flex;
-  justify-content: space-between;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
-} */
 
 #content {
   background-color: #d3c1c1;
 }
 
-/* #search_bar {
-  display: flex;
-  align-items: center;
-  padding: 5px; /* Add padding for spacing */
-  /* width: 30%; 
-  margin: 0 auto; 
-  margin-left: 20px; 
-}*/
 
 #search_bar_input {
   flex: 1; /* Input takes remaining space */
@@ -98,23 +73,6 @@
 }
 
 
-/* #title {
-  /* display: flex; */
-  /* justify-content: center; /*Centers horizontally*/
-  /* align-items: center; Centers vertically */
-  /* text-align: center;  */
-  /* width: 40%; Set a width for the container */
-
-/* 
-#main_title {
-  color: #557c55;
-  font-family: "Inter-SemiBold", Helvetica;
-  font-size: 60px;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: normal;
-} */
-
 #profile {
   display: flex;
   justify-content: flex-end; /* Move the button to the right side */
@@ -134,7 +92,6 @@ body {
   margin: 0; /* Reset margin for the body */
 }
 
-/* for the drop down menu  */
 .search-results-dropdown {
   position: absolute;
   z-index: 1000;
